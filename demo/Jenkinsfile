@@ -9,7 +9,9 @@ pipeline {
         }
         stage('Compilar') {
             steps {
-                sh './mvnw clean package -DskipTests'
+                dir('demo/Jenkins') {
+            sh './mvnw clean package -DskipTests'
+        }
             }
         }
         stage('Docker Build') {
