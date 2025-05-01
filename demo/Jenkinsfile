@@ -10,6 +10,8 @@ pipeline {
         stage('Compilar') {
             steps {
                 dir('demo') {
+            // Asegúrate de que mvnw tenga permisos de ejecución
+            sh 'chmod +x mvnw'
             sh './mvnw clean package -DskipTests'
         }
             }
