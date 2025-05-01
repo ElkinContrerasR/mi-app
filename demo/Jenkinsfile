@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clonar') {
             steps {
-                git 'https://github.com/tu_usuario/mi-app.git'
+                git 'https://github.com/ElkinContrerasR/mi-app.git'
             }
         }
         stage('Compilar') {
