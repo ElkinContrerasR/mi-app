@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clonar') {
+            steps {
+                git 'https://github.com/tu_usuario/mi-app.git'
+            }
+        }
+        stage('Compilar') {
+            steps {
+                sh './mvnw clean package -DskipTests'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t miapp .'
+            }
+        }
+        stage('Desplegar') {
+            steps {
+                sh 'docker compose down'
+                sh 'docker compose up -d --build'
+            }
+        }
+    }
+}
