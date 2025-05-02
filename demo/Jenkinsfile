@@ -1,4 +1,4 @@
-# Jenkinsfile corregido
+//Jenkinsfile corregido
 pipeline {
     agent any
     stages {
